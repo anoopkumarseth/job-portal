@@ -11,8 +11,10 @@ import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
+@RequestMapping(path = "users")
 public class UsersController {
 
     private final UserService userService;
@@ -21,17 +23,17 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping(path = "/users/{id}")
+    @GetMapping
+    public List<UsersDTO> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
+    @GetMapping(path = "{id}")
     public UsersDTO getUsersById(@PathVariable("id") Long userId){
-//        return new UsersDTO(userId, "Anoop Seth", "anoopseth@gmail.com", "AnoopSeth@123", LocalDate.of(2024,1,3), true); // for represent data
             return userService.getUserById(userId);
     }
 
-    @GetMapping(path = "/users2/{id}")
-    public UsersDTO getData(@PathVariable("id") Long userId, @PathParam("sortBy") String sortBy, @PathParam("sortBy") String age){
-        return new UsersDTO(userId, "Anoop Seth", "anoopseth@gmail.com", sortBy + " " + age, LocalDate.of(2024,1,3), true);
-    }
-    @PostMapping(path = "/users2/{id}")
+    @PostMapping
     public UsersDTO createNewUser(@RequestBody UsersDTO usersDTO){
         return userService.createNewUser(usersDTO);
     }
