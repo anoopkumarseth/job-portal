@@ -37,4 +37,11 @@ public class UsersController {
     public UsersDTO createNewUser(@RequestBody UsersDTO usersDTO){
         return userService.createNewUser(usersDTO);
     }
+
+    @DeleteMapping(path = "{id}")
+    public boolean deleteUserById(@PathVariable("id") Long delID){
+        return userService.deleteUser(delID);
+    }
+
+
 }

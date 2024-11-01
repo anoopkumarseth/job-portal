@@ -39,4 +39,13 @@ public class UserService {
         UserEntity userEntity = modelMapper.map(usersDTO, UserEntity.class);
         return modelMapper.map(userRepository.save(userEntity), UsersDTO.class);
     }
+
+
+    public boolean deleteUser(Long delID) {
+        boolean isPresent =  userRepository.existsById(delID);
+        if(!isPresent) return false;
+        userRepository.deleteById(delID);
+        return true;
+
+    }
 }
