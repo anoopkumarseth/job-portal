@@ -7,7 +7,6 @@ package com.jobportal.forMCA.job_search_engine.controllers;
 
 import com.jobportal.forMCA.job_search_engine.dto.UsersDTO;
 import com.jobportal.forMCA.job_search_engine.services.UserService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
