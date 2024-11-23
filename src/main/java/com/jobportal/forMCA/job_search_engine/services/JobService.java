@@ -24,7 +24,7 @@ public class JobService {
         return jobRepository
                 .findAll()
                 .stream()
-                .map(userEntity -> modelMapper.map(userEntity, JobDTO.class))
+                .map(jobEntity -> modelMapper.map(jobEntity, JobDTO.class))
                 .collect(Collectors.toList());
     }
 

@@ -15,10 +15,20 @@ import java.time.LocalDate;
 public class JobEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String name;
-    private String email;
-    private String password;
+    private Long jobId;
+    private String title;
+    private String description;
+    private String location;
+    private String companyID;
+    private String salary;
     private LocalDate createdAt;
-    private Boolean isActive;
+    private Boolean status;
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long userId;
+//    private String name;
+//    private String email;
+//    private String password;
+//    private Boolean isActive;
 }

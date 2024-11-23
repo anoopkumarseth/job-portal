@@ -11,13 +11,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobDTO {
-    private String message;
-    private Long userId;
-    private String name;
-    private String email;
-    private String password;
+    private Long jobId;
+    private String title;
+    private String description;
+    private String location;
+    private String companyID;
+    private String salary;
     private LocalDate createdAt;
-
-    @JsonProperty("isActive")
-    private Boolean isActive;
+    @JsonProperty("status")
+    private Boolean status;
 }
