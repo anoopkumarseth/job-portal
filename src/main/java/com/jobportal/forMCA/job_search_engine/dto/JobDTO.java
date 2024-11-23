@@ -1,24 +1,23 @@
-package com.jobportal.forMCA.job_search_engine.entities;
+package com.jobportal.forMCA.job_search_engine.dto;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class JobDTO {
+    private String message;
     private Long userId;
     private String name;
     private String email;
     private String password;
     private LocalDate createdAt;
+
+    @JsonProperty("isActive")
     private Boolean isActive;
 }
