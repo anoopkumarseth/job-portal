@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "jobs")
@@ -16,11 +17,18 @@ public class JobEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long jobId;
+
     private String title;
     private String description;
     private String location;
-    private String companyID;
     private String salary;
     private LocalDate createdAt;
     private Boolean status;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false)
+    private CompanyEntity company;
+
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ApplicationEntity> applications;
 }

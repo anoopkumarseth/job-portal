@@ -17,8 +17,15 @@ public class ApplicationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long applicationID;
-    private String jobID;
-    private String userID;
+
+    @ManyToOne
+    @JoinColumn(name = "job_id", nullable = false)
+    private JobEntity job;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
+
     private String resume;
     private String salary;
     private LocalDate applicationDate;
