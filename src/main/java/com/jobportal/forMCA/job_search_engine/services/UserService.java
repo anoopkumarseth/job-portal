@@ -48,4 +48,8 @@ public class UserService {
         return true;
 
     }
+
+    public boolean doesUserExist(String email, String password) {
+        return userRepository.existsByEmailAndPassword(email, password);
+    }
 }

@@ -42,5 +42,10 @@ public class UsersController {
         return userService.deleteUser(delID);
     }
 
+    @PostMapping(path = "/exists")
+    public boolean doesUserExist(@RequestBody UsersDTO usersDTO) {
+        return userService.doesUserExist(usersDTO.getEmail(), usersDTO.getPassword());
+    }
+
 
 }
