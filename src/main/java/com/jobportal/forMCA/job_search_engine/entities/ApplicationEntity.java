@@ -8,18 +8,19 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "users")
+@Table(name = "applications")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity {
+public class ApplicationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private String name;
-    private String email;
-    private String password;
-    private String message;
-    private LocalDate createdAt;
-    private Boolean isActive;
+    private Long applicationID;
+    private String jobID;
+    private String userID;
+    private String resume;
+    private String salary;
+    private LocalDate applicationDate;
+    private Boolean status;
 }
+

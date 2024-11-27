@@ -20,7 +20,7 @@ public class JobService {
         this.modelMapper = modelMapper;
     }
 
-    public List<JobDTO> getAllUsers() {
+    public List<JobDTO> getAllJob() {
         return jobRepository
                 .findAll()
                 .stream()
@@ -28,18 +28,18 @@ public class JobService {
                 .collect(Collectors.toList());
     }
 
-    public JobDTO getUserById(long id){
+    public JobDTO getJobById(long id){
         JobEntity jobEntity = jobRepository.getById(id);
         return modelMapper.map(jobEntity, JobDTO.class);
     }
 
-    public JobDTO createNewUser(JobDTO jobDTO) {
+    public JobDTO createNewJob(JobDTO jobDTO) {
         JobEntity jobEntity = modelMapper.map(jobDTO, JobEntity.class);
         return modelMapper.map(jobRepository.save(jobEntity), JobDTO.class);
     }
 
 
-    public boolean deleteUser(Long delID) {
+    public boolean deleteJob(Long delID) {
         boolean isPresent =  jobRepository.existsById(delID);
         if(!isPresent) return false;
         jobRepository.deleteById(delID);

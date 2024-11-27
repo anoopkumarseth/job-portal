@@ -23,12 +23,4 @@ public class JobEntity {
     private String salary;
     private LocalDate createdAt;
     private Boolean status;
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long userId;
-//    private String name;
-//    private String email;
-//    private String password;
-//    private Boolean isActive;
 }

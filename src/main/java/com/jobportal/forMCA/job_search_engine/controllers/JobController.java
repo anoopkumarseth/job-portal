@@ -22,23 +22,23 @@ public class JobController {
     }
 
     @GetMapping
-    public List<JobDTO> getAllUsers(){
-        return jobService.getAllUsers();
+    public List<JobDTO> getAllJob(){
+        return jobService.getAllJob();
     }
 
     @GetMapping(path = "{id}")
-    public JobDTO getUsersById(@PathVariable("id") Long userId){
-            return jobService.getUserById(userId);
+    public JobDTO getJobById(@PathVariable("id") Long jobId){
+            return jobService.getJobById(jobId);
     }
 
     @PostMapping
-    public JobDTO createNewUser(@RequestBody JobDTO jobDTO){
-        return jobService.createNewUser(jobDTO);
+    public JobDTO createNewJob(@RequestBody JobDTO jobDTO){
+        return jobService.createNewJob(jobDTO);
     }
 
     @DeleteMapping(path = "{id}")
-    public boolean deleteUserById(@PathVariable("id") Long delID){
-        return jobService.deleteUser(delID);
+    public boolean deleteJobById(@PathVariable("id") Long delID){
+        return jobService.deleteJob(delID);
     }
 
 
